@@ -142,6 +142,33 @@ When the task is ready (`status: "ready"`), `solution` contains:
 | `objects` | `number[]` | Classification — 0-based indices of tiles that matched the target label |
 | `scores` | `number[]` | Classification — per-tile confidence (parallel to input order) |
 
+### Example
+
+```json
+{
+  "status": "ready",
+  "solution": {
+    "cookie": "aws-waf-token=<long token value bound to the AWS WAF challenge>",
+    "objects": [
+      0,
+      4,
+      7
+    ],
+    "scores": [
+      0.93,
+      0.04,
+      0.01,
+      0.02,
+      0.88,
+      0.11,
+      0.06,
+      0.91,
+      0.05
+    ]
+  }
+}
+```
+
 ### How to use the result
 
 Token flow: set the aws-waf-token cookie on your HTTP client. Classification: click the tile indices we return in your own browser session.
